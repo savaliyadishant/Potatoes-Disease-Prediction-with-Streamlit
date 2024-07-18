@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 
 # Load your TensorFlow model
-model = tf.keras.models.load_model('potatoes.h5')
+model = tf.keras.models.load_model('./potatoes.h5')
 
 
 # Prediction function
