@@ -2,10 +2,17 @@ import streamlit as st
 from PIL import Image
 import tensorflow as tf
 import numpy as np
+import os
 
-# Load your TensorFlow model
-model = tf.keras.models.load_model('./potatoes.h5')
+# Ensure you use the correct path
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'potatoes.h5')
 
+# Load your TensorFlow model with error handling
+try:
+    model = tf.keras.models.load_model(MODEL_PATH)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+    st.stop()
 
 # Prediction function
 def predict_disease(image):
